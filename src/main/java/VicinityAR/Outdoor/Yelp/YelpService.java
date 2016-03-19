@@ -43,7 +43,7 @@ public class YelpService {
         Response response = request.send();
 
         //System.out.println("Result");
-        //System.out.println(response.getBody());
+        System.out.println(response.getBody());
         List<YelpData> result = null;
         try
         {
@@ -72,14 +72,28 @@ public class YelpService {
             JSONObject business = businesses.getJSONObject(i);
             JSONObject location = business.getJSONObject("location");
             JSONArray addressList = location.getJSONArray("display_address");
-            String address = addressList.get(0).toString()+ " " + addressList.get(1).toString()+ " "+ addressList.get(2).toString();
+            StringBuilder address =  new StringBuilder() ;
+
+            if(addressList!=null)
+            {
+
+
+                if(addressList.get(0).toString() != null)
+                    address = address.append(addressList.get(0).toString());
+
+//                if(addressList.get(1).toString() != null)
+//                    address = address.append(addressList.get(1).toString());
+//
+//                if(addressList.get(2).toString() != null)
+//                    address = address.append(addressList.get(2).toString());
+            }
 
             JSONObject coordinates = location.getJSONObject("coordinate");
 
             businessObjs.add(new YelpData(
                     business.optString("review_count"),
                     business.optString("name"),
-                    address,
+                    address.toString(),
                     coordinates.optString("latitude"),
                     coordinates.optString("longitude"),
                     business.optString("display_phone"),
