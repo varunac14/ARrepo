@@ -1,4 +1,4 @@
-package Outdoor.Yelp;
+package VicinityAR.Outdoor.Yelp;
 
 /**
  * Created by varuna on 3/18/16.

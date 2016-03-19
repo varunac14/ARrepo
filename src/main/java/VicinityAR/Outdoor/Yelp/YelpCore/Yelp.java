@@ -1,10 +1,9 @@
-package Outdoor.Yelp;
+package VicinityAR.Outdoor.Yelp.YelpCore;
 
 /**
  * Created by varuna on 2/18/16.
  */
 
-import Outdoor.Yelp.YelpApi2;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Response;

@@ -1,5 +1,6 @@
-package Outdoor.Yelp;
+package VicinityAR.Outdoor.Yelp;
 
+import VicinityAR.Outdoor.Yelp.YelpCore.YelpApi2;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by varuna on 3/18/16.
@@ -22,11 +22,7 @@ import java.util.concurrent.ExecutionException;
 @Repository
 public class YelpService {
 
-    public List<YelpData> getAllRestaurantsInUserVicinity() {
-
-        System.out.println("In yelp service");
-
-        List<YelpData> newShipmentDOs = new ArrayList<YelpData>();
+    public List<YelpData> getAllRestaurantsInUserVicinity(String latitude , String longitude) {
 
         String consumerKey =  "o-kttC1GE2aQt3sXUrr3nQ";
         String consumerSecret = "obSzwDEDhS2Ed0kFmqc3sd2mync";
@@ -41,7 +37,8 @@ public class YelpService {
 
         OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search");
         request.addQuerystringParameter("term", "restaurants");
-        request.addQuerystringParameter("ll", 37.3360008 + "," + -121.8847221);
+        request.addQuerystringParameter("ll", latitude + "," +longitude);
+        request.addQuerystringParameter("sort", 1 + "");
         service.signRequest(accessToken, request);
         Response response = request.send();
 
