@@ -1,0 +1,12 @@
+*.xml
+*.jar
+gradlew*
+*.gradle
+*.iml
+*.ipr
+gradle/wra*
+build*
+*.iws
+settings.gradle
+gradlew.bat
+.idea

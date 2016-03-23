@@ -42,8 +42,6 @@ public class YelpService {
         service.signRequest(accessToken, request);
         Response response = request.send();
 
-        //System.out.println("Result");
-        System.out.println(response.getBody());
         List<YelpData> result = null;
         try
         {

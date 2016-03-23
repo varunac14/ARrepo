@@ -20,6 +20,7 @@ public class YelpController {
     @RequestMapping(value="/outdoor/yelp/{latitude}/{longitude}", method=RequestMethod.GET)
      public ResponseEntity<List<YelpData>> getAllActiveShipmentsInDriversVicinity(@PathVariable(value = "latitude") String latitude, @PathVariable(value = "longitude") String longitude)
     {
+        System.out.println("In Get YELP service");
         return new ResponseEntity<List<YelpData>>(yelpService.getAllRestaurantsInUserVicinity(latitude, longitude), HttpStatus.OK);
     }
 
