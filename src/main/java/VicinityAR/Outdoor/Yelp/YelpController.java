@@ -17,11 +17,18 @@ public class YelpController {
 
     YelpService yelpService = new YelpService();
 
-    @RequestMapping(value="/outdoor/yelp/{latitude}/{longitude}", method=RequestMethod.GET)
-     public ResponseEntity<List<YelpData>> getAllActiveShipmentsInDriversVicinity(@PathVariable(value = "latitude") String latitude, @PathVariable(value = "longitude") String longitude)
+//    @RequestMapping(value="/outdoor/yelp/{latitude}/{longitude}", method=RequestMethod.GET)
+//     public ResponseEntity<List<YelpData>> getAllRestuarantsInUserVicinity(@PathVariable(value = "latitude") String latitude, @PathVariable(value = "longitude") String longitude)
+//    {
+//        System.out.println("In Get YELP service");
+//        return new ResponseEntity<List<YelpData>>(yelpService.getAllRestaurantsInUserVicinity(latitude, longitude), HttpStatus.OK);
+//    }
+
+    @RequestMapping(value="/outdoor/yelp", method=RequestMethod.GET)
+    public ResponseEntity<List<YelpData>> getAllRestuarantsInUserVicinity()
     {
-        System.out.println("In Get YELP service");
-        return new ResponseEntity<List<YelpData>>(yelpService.getAllRestaurantsInUserVicinity(latitude, longitude), HttpStatus.OK);
+        System.out.println("In Get YELP service no args");
+        return new ResponseEntity<List<YelpData>>(yelpService.getAllRestaurantsInUserVicinity(), HttpStatus.OK);
     }
 
 }

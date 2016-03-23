@@ -22,7 +22,8 @@ import java.util.List;
 @Repository
 public class YelpService {
 
-    public List<YelpData> getAllRestaurantsInUserVicinity(String latitude , String longitude) {
+    //public List<YelpData> getAllRestaurantsInUserVicinity(String latitude , String longitude) {
+    public List<YelpData> getAllRestaurantsInUserVicinity() {
 
         String consumerKey =  "o-kttC1GE2aQt3sXUrr3nQ";
         String consumerSecret = "obSzwDEDhS2Ed0kFmqc3sd2mync";
@@ -37,7 +38,7 @@ public class YelpService {
 
         OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search");
         request.addQuerystringParameter("term", "restaurants");
-        request.addQuerystringParameter("ll", latitude + "," +longitude);
+        request.addQuerystringParameter("ll", 37.335452 + "," + -121.8834427);
         request.addQuerystringParameter("sort", 1 + "");
         service.signRequest(accessToken, request);
         Response response = request.send();
